@@ -1,12 +1,13 @@
 class CommentsController < ApplicationController
   def create
     lesson = Lesson.find(params[:lesson_id])
-    lesson.comments.create(comment_params.merge(user: current_user))
-    # comment = lesson.comments.new(comment_params)
-    # comment.user = current_user
-    # comment.save
+    @comment = lesson.comments.create(comment_params.merge(user: current_user))
 
-    redirect_to lesson
+    respond_to do |format|
+      format.html {redirect_to lesson}
+      format.js { }
+    end
+
   end
 
   private

@@ -1,14 +1,12 @@
 <h1><%= @lesson.title %></h1>
 
-<%= form_for [@lesson, Comment.new] do |f| %>
+<%= form_for [@lesson, Comment.new], remote: true do |f| %>
   <div>
     <%= f.text_area :content, placeholder: "Be Nice" %>
   </div>
   <%= f.submit %>
 <% end %>
 
-<ul>
-<% @lesson.comments.each do |comment| %>
-  <li><%= comment.content %> by <%= comment.user.name %></li>
-<% end %>
+<ul class="comments">
+ <%= render @lesson.comments %>
 </ul>

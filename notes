@@ -16,6 +16,6 @@
 
 * Lessons are attributed to the logged in user
 
-Lessons can be commented on by other users
-  post /lessons/7/comments
+* Lessons can be commented on by other users
+*   post /lessons/7/comments
 New lesson form can create a new shirt
